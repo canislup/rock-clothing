@@ -1,4 +1,4 @@
-import { Outlet, Outleta } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import CategoriesList from "../../category-menu/category-menu.component.jsx";
 

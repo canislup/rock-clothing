@@ -1,8 +1,8 @@
 import { useState } from "react";
+
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -27,9 +27,7 @@ const SignInForm = () => {
 
   // Authenticates user with gmail
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
-    alert("You have been sucessfully logged in");
+    await signInWithGooglePopup();
   };
 
   const handleChange = (event) => {
@@ -43,7 +41,7 @@ const SignInForm = () => {
 
     try {
       const { user } = await signInWithEmailAndPasswordMethod(email, password);
-      console.log(user);
+
       resetFormFields();
       alert("You have been sucessfully signed in. Welcome.");
     } catch (error) {
